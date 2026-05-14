@@ -1,0 +1,26 @@
+# Credentials
+.kaggle_creds.json
+
+# Chat history (session state, not source)
+chat_history*.json
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
+# KB contents (user-specific reference files)
+kb/*
+!kb/.gitkeep
+
+# Unused chrome extension artifacts
+chrome-extension/
+chrome-extension.zip
+
+# Debug artifacts
+debug_screenshot.png
+
+# Claude local settings (session-specific)
+.claude/settings.local.json

@@ -1,0 +1,5 @@
+import subprocess, sys
+
+URL = "https://kkb-production.jupyter-proxy.kaggle.net/k/318704595/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwidHlwIjoiSldUIn0..nAJB1k5F_ipALWOZpE5kkw.D8R5OkkAR2DgIK1oGod98UTIFXlXQt3khiG7nrF_OfYxEmcuW3V9lMDT1Nrh-M83Y_C8FyuyleYHwIfAa5maaWhpmhrs7RMTwZlZcC3vXcQK5ZBKK4CvnJTQLNB_KQzmj8fEywMWojSwpUEYDWCjBe-r1RVk_rStz0jK6eYvjFUMS13oPxVaKHUlys8Eq4dOMgiXdIY171LgmOr-rokvdYWlUbzRRnaedJ6JCEUaKs1vRy3gKpyeQDQyQswn5cwT.NLIT0TcZfq55KCMrWCBAaA/proxy"
+CLIENT = "/data/data/com.termux/files/home/Kaggle-Claude-Notebook/kaggle_client.py"
+
