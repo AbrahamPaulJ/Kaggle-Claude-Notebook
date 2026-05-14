@@ -307,6 +307,8 @@ def _unescape(s: str) -> str:
 def get_client(args) -> KaggleClient:
     import os
     url = args.url or os.environ.get("KAGGLE_SERVER_URL")
+    if url == "change-me":
+        url = ""
     token = args.token or os.environ.get("KAGGLE_TOKEN", "")
     if not url:
         print("Provide --url or set KAGGLE_SERVER_URL.")
@@ -353,15 +355,19 @@ def main():
     args = parser.parse_args()
     client = get_client(args)
 
+    def _src(s):
+        """Read source from stdin if s=='-', otherwise unescape shell arg."""
+        return sys.stdin.read() if s == '-' else _unescape(s)
+
     if   args.cmd == "init":     client.init()
     elif args.cmd == "list":     client.list_cells()
     elif args.cmd == "show":     client.get_cell(args.index)
-    elif args.cmd == "add":      client.add_cell(_unescape(args.source), args.type, args.index)
-    elif args.cmd == "edit":     client.edit_cell(args.index, _unescape(args.source))
+    elif args.cmd == "add":      client.add_cell(_src(args.source), args.type, args.index)
+    elif args.cmd == "edit":     client.edit_cell(args.index, _src(args.source))
     elif args.cmd == "delete":   client.delete_cell(args.index)
     elif args.cmd == "run":      client.execute_cell(args.index, args.timeout)
     elif args.cmd == "run-all":  client.run_all(args.timeout)
-    elif args.cmd == "exec":     client.run(_unescape(args.code), args.timeout)
+    elif args.cmd == "exec":     client.run(_src(args.code), args.timeout)
     else:                        parser.print_help()
 
 
